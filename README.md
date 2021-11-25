@@ -145,7 +145,7 @@ end _nazwa zadania_;
 ***
 ## Algorytmy Synchronizacji
 ### Algorytm Petersona
-#### Dla dwóch różnych procesów
+#### Dla dwóch zadań różnego typu zadaniowego _P1_ i _P2_
 ```
 procedure Main is
    K1, K2 : Integer := 1;
@@ -230,6 +230,59 @@ begin
 end Main;
 
 ```
+
+#### Dla dwóch zadań tego samego typu zadaniowego _Process_
+```
+procedure Main is
+   val :  array (1 .. 2) of Integer := (2,1);
+   K : array (1 .. 2) of Integer := (1,1);
+   czyja_kolej : Integer := 1;
+
+   procedure sekcjaLokalna is
+      -- miejsce na deklaracje zmiennych
+   begin
+      -- kod
+      null;
+   end sekcjaLokalna;
+
+   procedure sekcjaKrytyczna is
+      -- miejsce na deklaracje zmiennych
+   begin
+      -- kod
+      null;
+   end sekcjaKrytyczna;
+
+
+   task type Process(nr_zadania, ile_razy : Integer);   
+
+   task body Process is
+      -- zmienne
+   begin
+      for i in 1..ile_razy loop
+         --------------------------------
+         sekcjaLokalna;
+         --------------------------------
+         K(nr_zadania) := 0;
+         czyja_kolej := val(nr_zadania);
+         while K(val(nr_zadania)) = 0 and czyja_kolej = val(nr_zadania) loop
+            null;
+         end loop;
+         --------------------------------
+         sekcjaKrytyczna;
+         --------------------------------
+         K(nr_zadania) := 1;
+      end loop;
+   end Process;
+
+   taks1 : Process(1,10);
+   task2 : Process(2,10);
+begin
+   --  Insert code here.
+   null;
+end Main;
+
+```
+
 
 ---
 &copy; Jakub Grątkiewicz
