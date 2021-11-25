@@ -16,7 +16,7 @@ Szablony podstawowych konstrukcji jezyka ADA, oraz szablony algorytmów synchron
     1. [Takie same typy zadaniowe](#dla-dwóch-zadań-różnego-typu-zadaniowego-p1-i-p2)
 1. [Algorytn Dekkera](#algorytm-dekkera)
     1. [Różne typy zadaniowe](#dla-dwóch-zadań-różego-typu-zadaniowego-p1-i-p2)
-    1.[Takie same typy zadaniowe](#dla-dwóch-zadań-tego-samego-typu-zadaniowego-process-1)
+    1. [Takie same typy zadaniowe](#dla-dwóch-zadań-tego-samego-typu-zadaniowego-process-1)
   
 ## Podstawowe konstrukcje
 ### Tablice
