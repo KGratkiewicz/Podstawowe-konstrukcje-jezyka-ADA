@@ -3,7 +3,7 @@ Szablony podstawowych konstrukcji jezyka ADA
 ## Spis tresci
 1. [Tablice](#Tablice)
 1. [Instrukcja warunkowa](#Instrukcja-warunkowa)
-1. [Pętle](#P-tle)
+1. [Pętle](#pętle)
 1. [Procedury](#Procedury)
 1. [Funkcje](#Funkcje)
 1. [Pakiety](#Pakiety)
