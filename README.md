@@ -7,7 +7,7 @@ Szablony podstawowych konstrukcji jezyka ADA
 1. [Procedury](#Procedury)
 1. [Funkcje](#Funkcje)
 1. [Pakiety](#Pakiety)
-1. [Zadania (task)]()
+1. [Zadania (task)](#zadania-task)
 
 
 ### Tablice
