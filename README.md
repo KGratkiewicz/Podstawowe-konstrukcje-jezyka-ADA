@@ -1,6 +1,7 @@
 # Podstawowe konstrukcje jezyka ADA
-Szablony podstawowych konstrukcji jezyka ADA
+Szablony podstawowych konstrukcji jezyka ADA, oraz szablony algorytmów synchronizacji.
 ## Spis tresci
+### Podstawowe konstrukcje
 1. [Tablice](#Tablice)
 1. [Instrukcja warunkowa](#Instrukcja-warunkowa)
 1. [Pętle](#pętle)
@@ -9,7 +10,8 @@ Szablony podstawowych konstrukcji jezyka ADA
 1. [Pakiety](#Pakiety)
 1. [Zadania (task)](#zadania-task)
 ***
-1. [Algorytm Dekkera](#Algorytm-dekkera)
+### Algorytmy synchronizacji
+1. [Algorytm Petersona](#algorytm-petersona)
 
 ### Tablice
 #### Deklaracja tablicy
