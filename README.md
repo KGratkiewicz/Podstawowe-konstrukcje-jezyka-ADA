@@ -1,8 +1,17 @@
 # Podstawowe konstrukcje jezyka ADA
 Szablony podstawowych konstrukcji jezyka ADA
+## Spis tresci
+[Tablice](#Tablice)
+[Instrukcja warunkowa](#Instrukcja-warunkowa)
+[Pętle](#P-tle)
+[Procedury](#Procedury)
+[Funkcje](#Funkcje)
+[Pakiety](#Pakiety)
+[Zadania (task)]()
 
-## Tablice
-### Deklaracja tablicy
+
+### Tablice
+#### Deklaracja tablicy
 ```
 _nazwa tablicy_ : array (1..n) of Typ;
 ```
@@ -10,7 +19,7 @@ _nazwa tablicy_ : array (1..n) of Typ;
 tablica : array (1..10) of Integer;
 ```
 
-### Użycie tablicy - przypisanie
+#### Użycie tablicy - przypisanie
 ```
 _nazwa tablicy_(index) := _wartosc_; 
 ```
@@ -18,7 +27,7 @@ _nazwa tablicy_(index) := _wartosc_;
 tablica(10) := 10;
 ```
 
-## if - instrukcja warunkowa
+### Instrukcja warunkowa
 ```
 if _wyrazenie logiczne_ then
   -- kod
@@ -32,22 +41,22 @@ else
 end if;
 ```
 
-## Pętla
-### for
+### Pętle
+#### for
 ```
 for _zmienna_ in start..stop loop
   -- kod 
   null;
 end loop;
 ```
-### while
+#### while
 ```
 while _wyrazenie logiczne_ loop
   -- kod
   null;
 end loop;
 ```
-### loop
+#### loop
 ```
 loop
   -- kod
@@ -56,12 +65,12 @@ loop
 end loop;
 ```
 
-## Procedury
-### Deklaracje procedury
+### Procedury
+#### Deklaracje procedury
 ```
 procedure _nazwa procedury_(parametr1,parametr2 : in/out Typ1; parametr3 : in/out Typ2);
 ```
-### Ciało procedury
+#### Ciało procedury
 ```
 procedure _nazwa procedury_(parametr1,parametr2 : Typ1; parametr3 : Typ2) is
 -- miejsce na deklaracje zmiennych
@@ -71,12 +80,12 @@ begin
 end _nazwa procedury_;
 ```
 
-## Funkcje
-### Deklaracja funkcji
+### Funkcje
+#### Deklaracja funkcji
 ```
 function _nazwa funkcji_(parametr : Typ1; parametr2,parametr3 : Typ2) return TypZwracany;
 ```
-### Ciało funkcji
+#### Ciało funkcji
 ```
 function _nazwa funkcji_(parametr : Typ1; parametr2,parametr3 : Typ2) return TypZwracany is
 -- miejsce na deklaracje zmiennych
@@ -85,8 +94,8 @@ begin
   null;
 end _nazwa funkcji_;
 ```
-## Pakiety
-### Plik \_nazwa pakietu\_.ads - deklaracja pakietu
+### Pakiety
+#### Plik \_nazwa pakietu\_.ads - deklaracja pakietu
 ```
 package _nazwa pakietu_ is
   -- deklaracje funkcji i procedur
@@ -94,7 +103,7 @@ package _nazwa pakietu_ is
   -- procedure _nazwa procedury_(parametr1,parametr2 : in/out Typ1; parametr3 : in/out Typ2);
 end _nazwa pakietu_
 ```
-### Plik \_nazwa pakietu\_.adb - ciało pakietu
+#### Plik \_nazwa pakietu\_.adb - ciało pakietu
 ```
 package body _nazwa pakietu_ is
   -- ciała funkcji i procedur
@@ -115,12 +124,12 @@ package body _nazwa pakietu_ is
   --------------------------------------------------------------------------------------------
 end _nazwa pakietu_
 ```
-## Zadania _task_
-### Deklaracja typu zadaniowego
+### Zadania _task_
+#### Deklaracja typu zadaniowego
 ```
 task type _nazwa zadania_(parametr,parametr2 : Typ; parametr3 : Typ2);
 ```
-### Deklaracja ciała zadania
+#### Deklaracja ciała zadania
 ```
 task body _nazwa zadania_ is
 -- miejsce na deklaracje zmiennych zadania
