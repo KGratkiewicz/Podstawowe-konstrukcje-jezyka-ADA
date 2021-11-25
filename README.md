@@ -8,7 +8,8 @@ Szablony podstawowych konstrukcji jezyka ADA
 1. [Funkcje](#Funkcje)
 1. [Pakiety](#Pakiety)
 1. [Zadania (task)](#zadania-task)
-
+***
+1. [Algorytm Dekkera](#Algorytm-dekkera)
 
 ### Tablice
 #### Deklaracja tablicy
@@ -137,4 +138,93 @@ begin
   -- kod
   null;
 end _nazwa zadania_;
+```
+
+***
+## Algorytmy Synchronizacji
+### Algorytm Petersona
+#### Dla dwóch różnych procesów
+```
+procedure Main is
+   K1, K2 : Integer := 1;
+   czyja_kolej : Integer := 1;
+   
+   procedure sekcjaLokalnaP1 is
+      -- miejsce na deklaracje zmiennych
+   begin
+      -- kod
+      null;
+   end sekcjaLokalnaP1;
+   
+   procedure sekcjaLokalnaP2 is
+      -- miejsce na deklaracje zmiennych
+   begin
+      -- kod
+      null;
+   end sekcjaLokalnaP2;
+   
+   procedure sekcjaKrytycznaP1 is
+      -- miejsce na deklaracje zmiennych
+   begin
+      -- kod
+      null;
+   end sekcjaKrytycznaP1;
+   
+   procedure sekcjaKrytycznaP2 is
+      -- miejsce na deklaracje zmiennych
+   begin
+      -- kod
+      null;
+   end sekcjaKrytycznaP2;
+   
+   
+   task type P1(ile_razy : Integer);
+   task type P2(ile_razy : Integer);
+   
+   task body P1 is
+      -- zmienne
+   begin
+      for i in 1..ile_razy loop
+         --------------------------------
+         sekcjaLokalnaP1;
+         --------------------------------
+         K1 := 0;
+         czyja_kolej := 2;
+         while K2 = 0 and czyja_kolej = 2 loop
+            null;
+         end loop;
+         --------------------------------
+         sekcjaKrytycznaP1;
+         --------------------------------
+         K1 := 1;
+      end loop;
+   end P1;
+
+   task body P2 is
+      -- zmienne
+   begin
+      for i in 1..ile_razy loop
+         --------------------------------
+         sekcjaLokalnaP2;
+         --------------------------------
+         K2 := 0;
+         czyja_kolej := 1;
+         while K1 = 0 and czyja_kolej = 1 loop
+            null;
+         end loop;
+         --------------------------------
+         sekcjaKrytycznaP1;
+         --------------------------------
+         K2 := 1;
+      end loop;
+   end P2;
+
+
+   taks1 : P1(10);
+   task2 : P2(10);
+begin
+   --  Insert code here.
+   null;
+end Main;
+
 ```
