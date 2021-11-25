@@ -230,3 +230,6 @@ begin
 end Main;
 
 ```
+
+---
+&copy; Jakub Grątkiewicz
