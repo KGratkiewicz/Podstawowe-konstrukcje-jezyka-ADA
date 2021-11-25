@@ -283,9 +283,106 @@ end Main;
 
 ```
 ### Algorytm Dekkera
-#### Dla dwóch zadań różego typu zadaniowego
+#### Dla dwóch zadań różego typu zadaniowego _P1_ i _P2_
+```
+procedure Main is
+   K1, K2 : Integer := 1;
+   czyja_kolej : Integer := 1;
+   
+   procedure sekcjaLokalnaP1 is
+      -- miejsce na deklaracje zmiennych
+   begin
+      -- kod
+      null;
+   end sekcjaLokalnaP1;
+   
+   procedure sekcjaLokalnaP2 is
+      -- miejsce na deklaracje zmiennych
+   begin
+      -- kod
+      null;
+   end sekcjaLokalnaP2;
+   
+   procedure sekcjaKrytycznaP1 is
+      -- miejsce na deklaracje zmiennych
+   begin
+      -- kod
+      null;
+   end sekcjaKrytycznaP1;
+   
+   procedure sekcjaKrytycznaP2 is
+      -- miejsce na deklaracje zmiennych
+   begin
+      -- kod
+      null;
+   end sekcjaKrytycznaP2;
+   
+   
+   task type P1(ile_razy : Integer);
+   task type P2(ile_razy : Integer);
+   
+   task body P1 is
+      -- zmienne
+   begin
+      for i in 1..ile_razy loop
+         --------------------------------
+         sekcjaLokalnaP1;
+         --------------------------------
+         K1 := 0;         
+         while K2 = 0 loop
+            if czyja_kolej = 2 then
+               K1 := 1;
+               while czyja_kolej = 2 loop
+                  null;
+               end loop;
+               K1 := 0;
+            end if;
+         end loop;
+         --------------------------------
+         sekcjaKrytycznaP1;
+         --------------------------------
+         K1 := 1;
+         czyja_kolej := 2;
+      end loop;
+   end P1;
 
-#### Dla dwóch zadań tego samego typu zadaniowego
+   task body P2 is
+      -- zmienne
+   begin
+      for i in 1..ile_razy loop
+         --------------------------------
+         sekcjaLokalnaP2;
+         --------------------------------
+         K2 := 0;         
+         while K1 = 0 loop
+            if czyja_kolej = 1 then
+               K2 := 1;
+               while czyja_kolej = 1 loop
+                  null;
+               end loop;
+               K2 := 0;
+            end if;
+         end loop;
+         --------------------------------
+         sekcjaKrytycznaP1;
+         --------------------------------
+         K2 := 1;
+         czyja_kolej := 1;
+      end loop;
+   end P2;
+
+
+   taks1 : P1(10);
+   task2 : P2(10);
+begin
+   --  Insert code here.
+   null;
+end Main;
+
+
+```
+
+#### Dla dwóch zadań tego samego typu zadaniowego _Process_
 ```
 procedure Main is
    val :  array (1 .. 2) of Integer := (2,1);
@@ -323,7 +420,7 @@ procedure Main is
                while czyja_kolej = val(nr_zadania) loop
                   null;
                end loop;
-               K(nr_zadania) := 1;
+               K(nr_zadania) := 0;
             end if;
          end loop;
          -------------------------------
