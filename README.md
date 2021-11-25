@@ -282,7 +282,67 @@ begin
 end Main;
 
 ```
+### Algorytm Dekkera
+#### Dla dwóch zadań różego typu zadaniowego
 
+#### Dla dwóch zadań tego samego typu zadaniowego
+```
+procedure Main is
+   val :  array (1 .. 2) of Integer := (2,1);
+   K : array (1 .. 2) of Integer := (1,1);
+   czyja_kolej : Integer := 1;
+
+   procedure sekcjaLokalna is
+      -- miejsce na deklaracje zmiennych
+   begin
+      -- kod
+      null;
+   end sekcjaLokalna;
+
+   procedure sekcjaKrytyczna is
+      -- miejsce na deklaracje zmiennych
+   begin
+      -- kod
+      null;
+   end sekcjaKrytyczna;
+
+
+   task type Process(nr_zadania, ile_razy : Integer);   
+
+   task body Process is
+      -- zmienne
+   begin
+      for i in 1..ile_razy loop
+         -------------------------------
+         sekcjaLokalna;
+         -------------------------------
+         K(nr_zadania) := 0;
+         while K(val(nr_zadania)) = 0 loop
+            if czyja_kolej = val(nr_zadania) then
+               K(nr_zadania) := 1;
+               while czyja_kolej = val(nr_zadania) loop
+                  null;
+               end loop;
+               K(nr_zadania) := 1;
+            end if;
+         end loop;
+         -------------------------------
+         sekcjaKrytyczna;
+         ------------------------------
+         K(nr_zadania) := 1;
+         czyja_kolej := val(nr_zadania);
+
+      end loop;
+
+   end Process;
+
+   taks1 : Process(1,10);
+   task2 : Process(2,10);
+begin
+   --  Insert code here.
+   null;
+end Main;
+```
 
 ---
 &copy; Jakub Grątkiewicz
