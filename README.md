@@ -9,7 +9,7 @@ Szablony podstawowych konstrukcji jezyka ADA, oraz szablony algorytmów synchron
 1. [Funkcje](#Funkcje)
 1. [Pakiety](#Pakiety)
 1. [Zadania (task)](#zadania-task)
-***
+
 ### Algorytmy synchronizacji
 1. [Algorytm Petersona](#algorytm-petersona)
 
