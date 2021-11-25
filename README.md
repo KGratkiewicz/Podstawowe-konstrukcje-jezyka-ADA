@@ -81,7 +81,8 @@ function _nazwa funkcji_(parametr : Typ1; parametr2,parametr3 : Typ2) return Typ
 function _nazwa funkcji_(parametr : Typ1; parametr2,parametr3 : Typ2) return TypZwracany is
 -- miejsce na deklaracje zmiennych
 begin
-
+  -- kod
+  null;
 end _nazwa funkcji_;
 ```
 ## Pakiety
