@@ -9,6 +9,8 @@ Szablony podstawowych konstrukcji jezyka ADA, oraz szablony algorytmów synchron
 1. [Funkcje](#Funkcje)
 1. [Pakiety](#Pakiety)
 1. [Zadania (task)](#zadania-task)
+1. [Bierne zadania - spotkania (task)](#bierne-zadania)
+
 
 ### Algorytmy synchronizacji
 1. [Algorytm Petersona](#algorytm-petersona)
@@ -146,6 +148,32 @@ begin
   -- kod
   null;
 end _nazwa zadania_;
+```
+
+### Bierne zadania
+#### Zajmij i zwolnij czyli coś ala semafor
+```
+task Serwer is
+      entry Zajmij;
+      entry Zwolnij;
+   end Serwer;
+
+   task body Serwer is
+   begin
+      loop
+         accept Zajmij;
+         accept Zwolnij;
+      end loop;
+   end Serwer;
+```
+sposób użycia w innym zadnaiu:
+```
+         Serwer.Zajmij;
+         -- sekcja krytyczna BEG
+         null;
+         -- kod sekcji krytycznej
+         -- sekcja krytyczna END
+         Serwer.Zwolnij;
 ```
 
 ***
